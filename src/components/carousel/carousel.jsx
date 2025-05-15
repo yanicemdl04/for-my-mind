@@ -54,8 +54,8 @@ function Carousel() {
                 <div className="bg-white h-[450px] text-black rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
                   <div className="h-56 bg-indigo-500 flex items-center justify-center">
                     <img 
-                      src={d.img} 
-                      alt={d.nom}
+                       
+                    src={d.img}  alt={d.nom}
                       className="rounded-full border-4 border-white w-32 h-32 object-cover"
                     />
                   </div>

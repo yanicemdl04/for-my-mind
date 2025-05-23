@@ -109,9 +109,9 @@ export const list = [
 ]
 export const awards = [
   {
-    icon: <i class='fa-solid fa-trophy'></i>,
-    num: "32 M	",
-    name: "Blue Burmin Award",
+    icône: <i className="fa-solid fa-trophy"></i>, // Utilisez `className` au lieu de `class` en JSX
+    num: "32 M",
+    nom: "Prix Blue Burmin",
   },
   {
     icon: <i class='fa-solid fa-briefcase'></i>,

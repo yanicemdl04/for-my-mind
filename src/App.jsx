@@ -1,13 +1,15 @@
-// app.jsx
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import HomePage from './pages/accueil/HomePage';
+import ChatbotPage from './pages/chatbot/ChatbotPage';
 
 const App = () => {
   return (
-    <div>
-      <HomePage />
-    </div>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/chatbot" element={<ChatbotPage />} />
+    </Routes>
   );
 };
 

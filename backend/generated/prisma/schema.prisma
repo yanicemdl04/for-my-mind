@@ -1,0 +1,134 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  nom       String
+  prenom    String
+  happy     String? // Ce qui rend heureux
+  stress    String? // Source de stress
+  goal      String? // Objectif personnel
+  emotion   String? // Gestion des émotions
+  createdAt DateTime @default(now())
+
+  journalEntries  JournalEntry[]
+  moods           Mood[]
+  exercises       ExerciseEntry[]
+  chatMessages    ChatMessage[]
+  recommendations Recommendation[]
+}
+
+model JournalEntry {
+  id        String    @id @default(uuid())
+  user      User      @relation(fields: [userId], references: [id])
+  userId    String
+  content   String
+  mediaUrl  String?
+  type      MediaType
+  createdAt DateTime  @default(now())
+}
+
+enum MediaType {
+  TEXT
+  IMAGE
+  VIDEO
+  AUDIO
+}
+
+model Mood {
+  id        String   @id @default(uuid())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  moodType  MoodType
+  note      Int? // Intensité ou note (1-5)
+  comment   String? // Note sur la journée
+  createdAt DateTime @default(now())
+}
+
+enum MoodType {
+  TRES_HEUREUX
+  CONTENT
+  NEUTRE
+  TRISTE
+  DEPRIME
+}
+
+model ExerciseEntry {
+  id          String       @id @default(uuid())
+  user        User         @relation(fields: [userId], references: [id])
+  userId      String
+  type        ExerciseType
+  duration    Int // en minutes
+  completedAt DateTime     @default(now())
+}
+
+enum ExerciseType {
+  MEDITATION
+  BREATHING
+  RELAXATION
+  VISUALIZATION
+  AUTRE
+}
+
+model ChatMessage {
+  id        String   @id @default(uuid())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  role      ChatRole
+  content   String
+  createdAt DateTime @default(now())
+}
+
+enum ChatRole {
+  USER
+  ASSISTANT
+}
+
+model Recommendation {
+  id        String             @id @default(uuid())
+  user      User               @relation(fields: [userId], references: [id])
+  userId    String
+  type      RecommendationType
+  content   String
+  sourceUrl String?
+  createdAt DateTime           @default(now())
+}
+
+enum RecommendationType {
+  VIDEO
+  ARTICLE
+  PODCAST
+  MUSIC
+  QUOTE
+}
+
+model Resource {
+  id        String       @id @default(uuid())
+  title     String
+  url       String
+  type      ResourceType
+  createdAt DateTime     @default(now())
+}
+
+enum ResourceType {
+  ARTICLE
+  VIDEO
+  PODCAST
+  MUSIC
+  AUTRE
+}

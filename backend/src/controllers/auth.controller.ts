@@ -7,9 +7,26 @@ import { authService } from '../services/auth.services';
 export const registerUser = async (req: Request, res: Response) => {
   try {
     const userData = req.body;
+    console.log('Données reçues:', userData);
+    
+    // Vérification des champs requis
+    if (!userData.email) {
+      return res.status(400).json({ message: 'Email requis' });
+    }
+    if (!userData.password) {
+      return res.status(400).json({ message: 'Mot de passe requis' });
+    }
+    if (!userData.nom) {
+      return res.status(400).json({ message: 'Nom requis' });
+    }
+    if (!userData.prenom) {
+      return res.status(400).json({ message: 'Prénom requis' });
+    }
+    
     const user = await authService.registerUser(userData);
     res.status(201).json(user);
   } catch (error: any) {
+    console.error('Erreur d\'inscription:', error);
     res.status(400).json({ message: error.message || 'Erreur serveur' });
   }
 };

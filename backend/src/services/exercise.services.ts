@@ -1,10 +1,9 @@
-import { PrismaClient, ExerciseType } from '../generated/prisma';
+import { prisma } from '../config/database';
+import { ExerciseType } from '@prisma/client';
 import { validateExerciseEntry } from '../utils/validators';
 import { NotFoundError } from '../utils/errorHandler';
 import { getDateDaysAgo } from '../utils/dateUtils';
 import { EXERCISE_TYPES } from '../utils/constants';
-
-const prisma = new PrismaClient();
 
 export interface ExerciseInput {
   type: ExerciseType;

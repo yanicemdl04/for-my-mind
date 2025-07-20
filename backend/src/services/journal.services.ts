@@ -1,8 +1,7 @@
-import { PrismaClient, MediaType } from '../generated/prisma';
+import { prisma } from '../config/database';
+import { MediaType } from '@prisma/client';
 import { validateJournalEntry } from '../utils/validators';
 import { NotFoundError } from '../utils/errorHandler';
-
-const prisma = new PrismaClient();
 
 export interface JournalEntryInput {
   content: string;

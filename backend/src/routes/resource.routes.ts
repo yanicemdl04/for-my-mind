@@ -1,9 +1,8 @@
 import express from 'express';
-import { PrismaClient } from '../generated/prisma';
+import { prisma } from '../config/database';
 import { protect } from '../middlewares/authMiddleware';
 
 const router = express.Router();
-const prisma = new PrismaClient();
 
 // @desc    Get all resources
 // @route   GET /api/resources

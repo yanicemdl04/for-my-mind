@@ -1,8 +1,7 @@
-import { PrismaClient, RecommendationType } from '../generated/prisma';
+import { prisma } from '../config/database';
+import { RecommendationType } from '@prisma/client';
 import { BadRequestError } from '../utils/errorHandler';
 import { CHAT_ROLES, RECOMMENDATION_TYPES } from '../utils/constants';
-
-const prisma = new PrismaClient();
 
 export interface MessageInput {
   content: string;

@@ -1,10 +1,9 @@
-import { PrismaClient, MoodType } from '../generated/prisma';
+import { prisma } from '../config/database';
+import type { MoodType } from '@prisma/client';
 import { validateMoodEntry } from '../utils/validators';
 import { NotFoundError } from '../utils/errorHandler';
 import { getDateDaysAgo } from '../utils/dateUtils';
 import { MOOD_TYPES } from '../utils/constants';
-
-const prisma = new PrismaClient();
 
 export interface MoodInput {
   moodType: MoodType;

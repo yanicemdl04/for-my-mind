@@ -1,5 +1,5 @@
 import { Request } from 'express';
-import { MoodType, ExerciseType, MediaType, ChatRole, RecommendationType } from '../generated/prisma';
+import { MoodType, ExerciseType, MediaType, ChatRole, RecommendationType } from '@prisma/client';
 
 // Extension de Request pour inclure l'utilisateur
 export interface AuthRequest extends Request {

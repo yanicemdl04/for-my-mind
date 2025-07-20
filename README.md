@@ -1,4 +1,4 @@
-# 🧠 4MyMind
+# 🧠 4MyMind app pour ton bien etre quotidien
 
 **4MyMind** est une application web de bien-être mental qui aide les utilisateurs à suivre leur humeur, s’exprimer librement, pratiquer des exercices de relaxation et discuter avec un chatbot intelligent basé sur la thérapie cognitive-comportementale (TCC).
 
@@ -30,16 +30,23 @@
 
 ---
 
+### 🧑‍💻 Auteur
+**Yanice Mundele**
+
+**Étudiant à l’Université Protestante du Congo, développeur web full-stack**
+
+---
+
 ## 🚀 Installation locale
 
 ### 1. Clone le dépôt
 
 ```bash
 git clone https://github.com/<ton-user>/4mymind.git
-cd 4mymind
+cd FOR MYMIND
 
 
-1. Backend
+2. Backend
 
 cd backend
 npm install
@@ -48,13 +55,9 @@ npx prisma migrate dev
 npm run dev
 
 
-2. Frontend
+3. Frontend
 cd frontend
 npm install
 npm run dev
 
 
-🧑‍💻 Auteur
-Yanice Mundele
-
-Étudiant à l’Université Protestante du Congo, développeur web full-stack

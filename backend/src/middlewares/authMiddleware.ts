@@ -1,9 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
-import { PrismaClient } from '../generated/prisma';
+import { prisma } from '../config/database';
 import { UnauthorizedError } from '../utils/errorHandler';
-
-const prisma = new PrismaClient();
 
 interface AuthRequest extends Request {
   user?: {

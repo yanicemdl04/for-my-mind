@@ -19,6 +19,6 @@ export const config = {
   corsOrigin: process.env.CORS_ORIGIN || '*',
   
   // Limites
-  maxJournalLength: 5000, // Nombre maximum de caractères pour un journal
-  maxMoodCommentLength: 500, // Nombre maximum de caractères pour un commentaire d'humeur
+  maxJournalLength: 8000, // Nombre maximum de caractères pour un journal
+  maxMoodCommentLength: 800, // Nombre maximum de caractères pour un commentaire d'humeur
 };

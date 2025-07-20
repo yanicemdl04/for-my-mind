@@ -1,4 +1,4 @@
-import { MoodType, ExerciseType, MediaType } from '../generated/prisma';
+import { MoodType, ExerciseType, MediaType } from '@prisma/client';
 import { BadRequestError } from './errorHandler';
 
 /**

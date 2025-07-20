@@ -1,10 +1,8 @@
-import { PrismaClient } from '../generated/prisma';
+import { prisma } from '../config/database';
 import bcrypt from 'bcryptjs';
 import { generateToken } from '../utils/generateToken';
 import { isValidEmail, isValidPassword } from '../utils/validateInput';
 import { BadRequestError, UnauthorizedError } from '../utils/errorHandler';
-
-const prisma = new PrismaClient();
 
 export interface RegisterUserInput {
   email: string;

@@ -4,8 +4,10 @@
  * @returns true si l'email est valide, false sinon
  */
 export const isValidEmail = (email: string): boolean => {
+  if (!email) return false;
+  // Expression régulière simple pour vérifier si l'email contient @ et un point
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
+  return emailRegex.test(email.trim());
 };
 
 /**

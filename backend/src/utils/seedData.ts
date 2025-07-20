@@ -1,7 +1,5 @@
-import { PrismaClient } from '../generated/prisma';
+import { prisma } from '../config/database';
 import bcrypt from 'bcryptjs';
-
-const prisma = new PrismaClient();
 
 /**
  * Fonction pour initialiser la base de données avec des données de test
